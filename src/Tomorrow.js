@@ -1,31 +1,11 @@
 import "./App.css";
+import Nav from "./components/Nav";
 
 function Tomorrow() {
   return (
-    <div className="container mx-auto">
-      <h1 className="text-3xl text-center font-bold underline">
-        The Daily NFT
-      </h1>
-      <nav className="flex-1">
-        <a
-          className="bg-slate-100 font-bold px-4 py-2 hover:bg-slate-50"
-          href={`/`}
-        >
-          ☀️ Today
-        </a>
-        <a
-          className="bg-slate-100 font-bold px-4 py-2 hover:bg-slate-50"
-          href={`/tomorrow`}
-        >
-          🔨 Tomorrow
-        </a>
-        <a
-          className="bg-slate-100 font-bold px-4 py-2 hover:bg-slate-50"
-          href={`/about`}
-        >
-          ?
-        </a>
-      </nav>
+    <div className="container max-w-xl py-5">
+      <h1 className="text-center font-bold underline">The Daily NFT</h1>
+      <Nav />
       <h2>TOMORROW</h2>
     </div>
   );
