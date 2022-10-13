@@ -1,10 +1,11 @@
 import "./App.css";
 import Nav from "./components/Nav";
+import Heading from "./components/Heading";
 
 function About() {
   return (
     <div className="container max-w-xl py-5">
-      <h1 className="text-center font-bold underline mb-5">The Daily NFT</h1>
+      <Heading />
       <Nav />
       <h2 className="mt-5">What is this?</h2>
       <p className="mt-3">

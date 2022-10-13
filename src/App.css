@@ -1,6 +1,5 @@
 /*
-Perfect Third font size ratios.
-Courtesy of: https://type-scale.com/
+HEADINGS
 */
 
 h1 {
@@ -25,4 +24,90 @@ h5 {
 
 small {
   @apply text-sm;
+}
+
+/*
+PILLS
+*/
+
+.nav-pills {
+  @apply flex-1;
+}
+
+.nav-pills a {
+  @apply bg-slate-100 font-bold px-4 py-2 hover:bg-slate-50 border-y-2 border-black;
+}
+
+.nav-pills a:first-child {
+  @apply border-l-2 border-r rounded-l;
+}
+
+.nav-pills a:last-child {
+  @apply border-r-2 border-l rounded-r;
+}
+
+/*
+REACT-TABS
+*/
+
+.react-tabs__tab-list {
+  @apply flex-1;
+}
+
+.react-tabs__tab {
+  @apply relative bg-slate-100 font-bold px-4 py-2 hover:bg-slate-50 border-y-2 border-black inline-block hover:cursor-pointer;
+  outline: none;
+}
+
+.react-tabs__tab--selected::after {
+  content: "";
+  background-color: #ffffff;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+}
+
+.react-tabs__tab:first-child {
+  @apply border-l-2 border-t-2 rounded-tl;
+}
+
+.react-tabs__tab:last-child {
+  @apply border-r-2 border-l rounded-tr;
+}
+
+.react-tabs__tab-panel--selected {
+  @apply border-2 border-black rounded-br-md rounded-bl-md rounded-tr-md p-3;
+  margin-top: -2px;
+}
+
+.react-tabs__tab-panel:nth-child(3) {
+  padding: 0;
+}
+
+/*
+TABLES
+*/
+
+table {
+  width: 100%;
+}
+
+td,
+th {
+  @apply text-left p-2;
+}
+
+td:first-child,
+th:first-child {
+  @apply border-r border-black;
+}
+
+th {
+  @apply text-gray-700;
+}
+
+tr:not(:last-child) {
+  @apply border-b border-black;
 }

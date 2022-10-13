@@ -1,7 +1,7 @@
 import "./App.css";
 import Nav from "./components/Nav";
-// import { DateTime } from "luxon";
 import Countdown from "react-countdown";
+import Heading from "./components/Heading";
 
 function Tomorrow() {
   function timeUntilTomorrow() {
@@ -25,7 +25,7 @@ function Tomorrow() {
 
   return (
     <div className="container max-w-xl py-5">
-      <h1 className="text-center font-bold underline mb-5">The Daily NFT</h1>
+      <Heading />
       <Nav />
       <h2>
         Only{" "}
