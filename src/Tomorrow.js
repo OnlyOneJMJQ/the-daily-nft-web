@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import Countdown from "react-countdown";
 import Heading from "./components/Heading";
 import { useAccount } from "wagmi";
+import HighestBid from "./components/HighestBid";
 
 function Tomorrow() {
   const { address, isConnected } = useAccount();
@@ -36,7 +37,7 @@ function Tomorrow() {
         longer to bid on tomorrow's slot!
       </h2>
       <p className="mt-5">
-        Highest Bid: <span className="text-bold">2.351 ETH</span>
+        Highest Bid: <HighestBid />
       </p>
       <div className={isConnected ? "" : "blur-lg pointer-events-none"}>
         <form>
