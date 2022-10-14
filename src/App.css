@@ -111,3 +111,15 @@ th {
 tr:not(:last-child) {
   @apply border-b border-black;
 }
+
+/*
+MISC
+*/
+
+.address {
+  max-width: 25%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  direction: rtl;
+  line-height: 3rem;
+}

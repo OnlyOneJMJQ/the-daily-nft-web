@@ -6,6 +6,25 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Tomorrow from "./Tomorrow";
 import About from "./About";
+import {
+  WagmiConfig,
+  createClient,
+  configureChains,
+  chain,
+  defaultChains,
+} from "wagmi";
+import { publicProvider } from "wagmi/providers/public";
+
+const { chains, provider, webSocketProvider } = configureChains(
+  [chain.mainnet, chain.polygon],
+  [publicProvider()]
+);
+
+const client = createClient({
+  autoConnect: true,
+  provider,
+  webSocketProvider,
+});
 
 const router = createBrowserRouter([
   {
@@ -25,7 +44,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <WagmiConfig client={client}>
+      <RouterProvider router={router} />
+    </WagmiConfig>
   </React.StrictMode>
 );
 
