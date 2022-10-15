@@ -8,6 +8,7 @@ function HighestBid() {
     address: "0xa28fe07ab96b5b6bbc2c789dff7e839cc69ae7a4",
     abi: auctionArtifact.abi,
     functionName: "highestBid",
+    isDataEqual: (prev, next) => prev === next,
   });
 
   return <span className="text-bold">{currentBid.data.toString()} ETH</span>;

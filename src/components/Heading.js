@@ -1,16 +1,9 @@
-import {
-  useAccount,
-  useConnect,
-  useEnsName,
-  useDisconnect,
-  chain,
-} from "wagmi";
+import { useAccount, useConnect, useDisconnect, chain } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import "../App.css";
 
 function Heading() {
   const { address, isConnected } = useAccount();
-  const { data: ensName } = useEnsName({ address });
   const { connect } = useConnect({
     connector: new InjectedConnector(),
   });
@@ -21,7 +14,7 @@ function Heading() {
       <h1 className="text-center font-bold inline-block">The Daily NFT</h1>
       {isConnected ? (
         <>
-          <span className="block ml-auto address">{ensName ?? address}</span>
+          <span className="block ml-auto address">{address}</span>
           <button
             className="ml-3 bg-red-100 font-bold px-3 hover:bg-red-50 rounded-md border-2 border-black"
             type="button"
