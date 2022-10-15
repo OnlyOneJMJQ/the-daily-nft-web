@@ -113,6 +113,14 @@ tr:not(:last-child) {
 }
 
 /*
+TOAST
+*/
+
+.toast {
+  @apply absolute bottom-3 right-3 p-4 shadow-lg rounded border-t border-r border-b;
+}
+
+/*
 MISC
 */
 

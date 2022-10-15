@@ -37,12 +37,17 @@ function Tomorrow() {
         <Countdown date={timeUntilTomorrow()} renderer={countdownRenderer} />{" "}
         longer to bid on tomorrow's slot!
       </h2>
-      <p className="mt-5">
-        Highest Bid: <HighestBid />
-      </p>
-      <div className={isConnected ? "" : "blur-lg pointer-events-none"}>
-        <SubmitBid />
-      </div>
+
+      {isConnected ? (
+        <>
+          <p className="mt-5">
+            Highest Bid: <HighestBid />
+          </p>
+          <SubmitBid />
+        </>
+      ) : (
+        <p>Connect a wallet to bid on tomorrow's slot!</p>
+      )}
     </div>
   );
 }
