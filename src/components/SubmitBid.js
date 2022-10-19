@@ -6,10 +6,11 @@ import {
 } from "wagmi";
 import auctionArtifact from "../contracts/Auction.json";
 import * as ethers from "ethers";
+import NFTList from "./NFTList";
 
 function SubmitBid() {
   const highestBid = useContractRead({
-    address: "0xA28FE07AB96B5B6bBC2C789dff7e839cC69ae7a4",
+    address: "0xD08b8398F0A3a0d63A921329Fb38F7209aFbCbD1",
     abi: auctionArtifact.abi,
     functionName: "highestBid",
   });
@@ -17,16 +18,20 @@ function SubmitBid() {
   const inputRef = useRef();
   const [error, setError] = useState(null);
 
+  let bid = inputRef.current?.value || "1";
+  console.log(bid);
+
   const { config } = usePrepareContractWrite({
-    address: "0xA28FE07AB96B5B6bBC2C789dff7e839cC69ae7a4",
+    address: "0xD08b8398F0A3a0d63A921329Fb38F7209aFbCbD1",
     abi: auctionArtifact.abi,
     functionName: "bid",
+    enabled: Boolean(bid),
     onError(error) {
       console.log(error);
       setError(error);
     },
     overrides: {
-      value: ethers.utils.parseEther(inputRef.current?.value || "1"),
+      value: ethers.utils.parseUnits(bid, "wei"),
     },
   });
 
@@ -34,6 +39,7 @@ function SubmitBid() {
 
   return (
     <>
+      <NFTList />
       <form>
         <label className="block w-full mt-3" htmlFor="bid">
           Bid (Wei)
@@ -43,7 +49,7 @@ function SubmitBid() {
           name="bid"
           type="text"
           ref={inputRef}
-          defaultValue={highestBid?.data + 1}
+          defaultValue={highestBid?.data + 1 || 105}
         ></input>
         <label className="block w-full mt-3" htmlFor="bid">
           Blurb: 500 characters about why this NFT is special.

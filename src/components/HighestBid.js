@@ -1,11 +1,10 @@
 import React from "react";
 import auctionArtifact from "../contracts/Auction.json";
 import { useContractRead } from "wagmi";
-import { useEffect, useState } from "react";
 
 function HighestBid() {
   const currentBid = useContractRead({
-    address: "0xA28FE07AB96B5B6bBC2C789dff7e839cC69ae7a4",
+    address: "0xD08b8398F0A3a0d63A921329Fb38F7209aFbCbD1",
     abi: auctionArtifact.abi,
     functionName: "highestBid",
     isDataEqual: (prev, next) => prev === next,
