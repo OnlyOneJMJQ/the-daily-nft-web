@@ -117,7 +117,7 @@ TOASTS
 */
 
 .toast {
-  @apply absolute bottom-3 right-3 p-4 shadow-lg rounded border-t border-r border-b;
+  @apply fixed bg-white bottom-3 right-3 p-4 shadow-lg rounded border-t border-r border-b;
   max-width: 50vw;
   word-wrap: break-word;
 }

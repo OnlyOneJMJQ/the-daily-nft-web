@@ -13,11 +13,12 @@
     "react": "^18.2.0",
     "react-countdown": "^2.3.2",
     "react-dom": "^18.2.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "react-tabs": "^5.1.0",
     "sort-by": "^1.2.0",
-    "wagmi": "^0.7.1",
+    "wagmi": "^0.7.15",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

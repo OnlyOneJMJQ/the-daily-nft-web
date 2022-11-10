@@ -6,13 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Tomorrow from "./Tomorrow";
 import About from "./About";
-import {
-  WagmiConfig,
-  createClient,
-  configureChains,
-  chain,
-  defaultChains,
-} from "wagmi";
+import { WagmiConfig, createClient, configureChains, chain } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
 
 const { chains, provider, webSocketProvider } = configureChains(

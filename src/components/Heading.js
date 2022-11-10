@@ -1,4 +1,4 @@
-import { useAccount, useConnect, useDisconnect, chain } from "wagmi";
+import { useAccount, useConnect, useDisconnect } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import "../App.css";
 

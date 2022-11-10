@@ -9,8 +9,12 @@ import * as ethers from "ethers";
 import NFTList from "./NFTList";
 
 function SubmitBid() {
+  const [NFTData, setNFTData] = useState({});
+
+  const auctionAddress = process.env.REACT_APP_AUCTION_ADDRESS;
+
   const highestBid = useContractRead({
-    address: "0xD08b8398F0A3a0d63A921329Fb38F7209aFbCbD1",
+    address: auctionAddress,
     abi: auctionArtifact.abi,
     functionName: "highestBid",
   });
@@ -19,13 +23,12 @@ function SubmitBid() {
   const [error, setError] = useState(null);
 
   let bid = inputRef.current?.value || "1";
-  console.log(bid);
 
   const { config } = usePrepareContractWrite({
-    address: "0xD08b8398F0A3a0d63A921329Fb38F7209aFbCbD1",
+    address: auctionAddress,
     abi: auctionArtifact.abi,
     functionName: "bid",
-    enabled: Boolean(bid),
+    enabled: false,
     onError(error) {
       console.log(error);
       setError(error);
@@ -39,18 +42,20 @@ function SubmitBid() {
 
   return (
     <>
-      <NFTList />
+      <NFTList setNFTData={setNFTData} />
       <form>
         <label className="block w-full mt-3" htmlFor="bid">
           Bid (Wei)
         </label>
-        <input
-          className="block w-full border-2 border-black p-2 rounded-md"
-          name="bid"
-          type="text"
-          ref={inputRef}
-          defaultValue={highestBid?.data + 1 || 105}
-        ></input>
+        {highestBid.data && (
+          <input
+            className="block w-full border-2 border-black p-2 rounded-md"
+            name="bid"
+            type="number"
+            ref={inputRef}
+            defaultValue={highestBid.data.toNumber() + 1}
+          ></input>
+        )}
         <label className="block w-full mt-3" htmlFor="bid">
           Blurb: 500 characters about why this NFT is special.
         </label>
